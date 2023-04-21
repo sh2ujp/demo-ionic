@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>DemoAPI</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">DemoAPI</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-card *ngIf="citation">
+      <ion-card-header>
+        <ion-card-title>({{citation.infos.saison}}) Épisode {{citation.infos.episode}}</ion-card-title>
+        <ion-card-subtitle>{{citation.infos.personnage}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <cite>«{{citation.citation}}»</cite>
+        <div>auteur: {{citation.infos.auteur}}</div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="onKaamelott()">TU-TUUUUUUUUUUUUUT!</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" [routerLink]="['/home']">Home</ion-button>
+</ion-footer>

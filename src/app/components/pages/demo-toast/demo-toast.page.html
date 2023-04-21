@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>DemoToast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">DemoToast</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-button (click)="showToast()">CLIIIIIIIICK!</ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" [routerLink]="['/home']">Home</ion-button>
+</ion-footer>

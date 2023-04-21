@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Rechercher un film</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- formulaire -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Titre</ion-label>
+      <ion-input type="text" [(ngModel)]="title" />
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Année de sortie</ion-label>
+      <ion-input type="text" [(ngModel)]="year" />
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Type</ion-label>
+      <ion-select [(ngModel)]="type">
+        <ion-select-option value="" class="value">Tous</ion-select-option>
+        <ion-select-option value="movie" class="value">Film</ion-select-option>
+        <ion-select-option value="serie" class="value">Série</ion-select-option>
+        <ion-select-option value="episode" class="value">Épisode</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="full" (click)="onClickSearchBtn()">
+      <ion-icon name="search" slot="start" />
+      Rechercher!
+    </ion-button>
+
+  </ion-list>
+
+  <ion-list *ngIf="errorMessages && errorMessages.length > 0">
+    <ion-list-header color="danger">
+      <span *ngIf="errorMessages.length > 1; then multipleErrorsBlock else oneErrorBlock"></span>
+      <ng-template #oneErrorBlock>Erreur dans le toaster !</ng-template>
+      <ng-template #multipleErrorsBlock>Erreurs dans le toaster !</ng-template>
+    </ion-list-header>
+
+    <ion-item color="danger" *ngFor="let error of errorMessages">
+      <ion-icon name="bug-outline" slot="start"></ion-icon>
+      {{error}}
+      <ion-icon name="bug-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" [routerLink]="['/home']">Home</ion-button>
+</ion-footer>
+
